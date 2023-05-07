@@ -1,32 +1,28 @@
 package com.example.expansions;
 
 import android.content.Context;
-import android.util.AttributeSet;
-import android.view.Gravity;
+
 import java.util.Random;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class Celda extends androidx.constraintlayout.widget.ConstraintLayout {
+public class Celda {
     private int x, y;
     private int ladron, numero;
     private List<Casilla> casillas;
     private int[] backgrounds = {R.mipmap.ladrillo, R.mipmap.madera, R.mipmap.piedra, R.mipmap.oveja, R.mipmap.trigo};
     private Random rnd;
+    private ConstraintLayout constraint;
 
-    public Celda(@NonNull Context context, int x, int y) {
-        super(context);
-        this.rnd = new Random();
+    public Celda(@NonNull Context context, int x, int y, ConstraintLayout constraint) {
         this.x = x;
         this.y = y;
-        this.setBackgroundResource(backgrounds[rnd.nextInt(5)]);
+        this.constraint = constraint;
+        cambiaRecurso();
         this.ladron = -1;
         this.numero = -1;
         this.casillas = new LinkedList<>();
@@ -61,7 +57,13 @@ public class Celda extends androidx.constraintlayout.widget.ConstraintLayout {
     public int getPosY() {
         return y;
     }
-
+    public void cambiaRecurso() {
+        this.rnd = new Random();
+        this.constraint.getViewById(R.id.material_hexagono).setBackgroundResource(backgrounds[rnd.nextInt(5)]);
+    }
+    public ConstraintLayout getConstraint() {
+        return constraint;
+    }
     public Casilla getCasilla(int i) {
         return casillas.get(i);
     }
