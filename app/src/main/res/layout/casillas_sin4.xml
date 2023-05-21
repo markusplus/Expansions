@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/imageButton6"
+        android:id="@+id/numero"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginBottom="24dp"
@@ -38,11 +38,35 @@
         app:layout_constraintStart_toStartOf="@+id/material_hexagono" />
 
     <ImageButton
+        android:id="@+id/road0"
+        android:layout_width="20dp"
+        android:layout_height="90dp"
+        android:background="@drawable/carretera_colocar"
+        android:rotation="-60"
+        android:translationX="-5dp"
+        android:translationY="-15dp"
+        app:layout_constraintEnd_toEndOf="@+id/vertex1"
+        app:layout_constraintStart_toEndOf="@+id/vertex0"
+        app:layout_constraintTop_toTopOf="@+id/material_hexagono" />
+
+    <ImageButton
+        android:id="@+id/road1"
+        android:layout_width="20dp"
+        android:layout_height="90dp"
+        android:background="@drawable/carretera_colocar"
+        android:rotation="0"
+        android:translationX="-3dp"
+        android:translationY="-10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/material_hexagono"
+        app:layout_constraintTop_toTopOf="@+id/material_hexagono" />
+
+    <ImageButton
         android:id="@+id/road2"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:alpha="0.5"
-        android:background="@color/black"
+        android:background="@drawable/carretera_colocar"
         android:rotation="-30"
         android:translationX="5dp"
         android:translationY="-5dp"
@@ -55,46 +79,17 @@
         android:id="@+id/road3"
         android:layout_width="90dp"
         android:layout_height="20dp"
-        android:alpha="0.5"
-        android:background="@color/black"
+        android:background="@drawable/carretera_colocar"
         android:rotation="30"
         android:translationY="-5dp"
         app:layout_constraintEnd_toStartOf="@+id/vertex3"
         app:layout_constraintTop_toTopOf="@+id/vertex3" />
 
     <ImageButton
-        android:id="@+id/road1"
-        android:layout_width="20dp"
-        android:layout_height="90dp"
-        android:alpha="0.5"
-        android:background="@color/black"
-        android:rotation="0"
-        android:translationX="-3dp"
-        android:translationY="-10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/material_hexagono"
-        app:layout_constraintTop_toTopOf="@+id/material_hexagono" />
-
-    <ImageButton
-        android:id="@+id/road0"
-        android:layout_width="20dp"
-        android:layout_height="90dp"
-        android:alpha="0.5"
-        android:background="@color/black"
-        android:rotation="-60"
-        android:translationX="-5dp"
-        android:translationY="-15dp"
-        app:layout_constraintEnd_toEndOf="@+id/vertex1"
-        app:layout_constraintStart_toEndOf="@+id/vertex0"
-        app:layout_constraintTop_toTopOf="@+id/material_hexagono" />
-
-    <ImageButton
         android:id="@+id/road5"
         android:layout_width="20dp"
         android:layout_height="90dp"
-        android:alpha="0.5"
-        android:background="@color/black"
+        android:background="@drawable/carretera_colocar"
         android:rotation="60"
         android:translationX="-5dp"
         android:translationY="-15dp"
@@ -103,22 +98,10 @@
         app:layout_constraintTop_toTopOf="@+id/material_hexagono" />
 
     <ImageButton
-        android:id="@+id/vertex3"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:alpha="0.5"
-        android:background="@mipmap/circle"
-        app:layout_constraintBottom_toBottomOf="@+id/material_hexagono"
-        app:layout_constraintEnd_toEndOf="@+id/material_hexagono"
-        app:layout_constraintStart_toStartOf="@+id/material_hexagono"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton6" />
-
-    <ImageButton
         android:id="@+id/vertex0"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:alpha="0.5"
-        android:background="@mipmap/circle"
+        android:background="@drawable/rounded_corner_box"
         android:translationY="-10dp"
         app:layout_constraintEnd_toEndOf="@+id/material_hexagono"
         app:layout_constraintHorizontal_bias="0.502"
@@ -126,11 +109,22 @@
         app:layout_constraintTop_toTopOf="@+id/material_hexagono" />
 
     <ImageButton
+        android:id="@+id/vertex1"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="72dp"
+        android:background="@drawable/rounded_corner_box"
+        android:translationX="45px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.909"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
         android:id="@+id/vertex2"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:alpha="0.5"
-        android:background="@mipmap/circle"
+        android:background="@drawable/rounded_corner_box"
         android:translationX="45px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/material_hexagono"
@@ -138,16 +132,13 @@
         app:layout_constraintVertical_bias="0.747" />
 
     <ImageButton
-        android:id="@+id/vertex1"
+        android:id="@+id/vertex3"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginTop="72dp"
-        android:alpha="0.5"
-        android:background="@mipmap/circle"
-        android:translationX="45px"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.909"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@drawable/rounded_corner_box"
+        app:layout_constraintBottom_toBottomOf="@+id/material_hexagono"
+        app:layout_constraintEnd_toEndOf="@+id/material_hexagono"
+        app:layout_constraintStart_toStartOf="@+id/material_hexagono"
+        app:layout_constraintTop_toBottomOf="@+id/numero" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
