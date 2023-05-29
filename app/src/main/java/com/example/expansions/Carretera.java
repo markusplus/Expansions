@@ -1,14 +1,16 @@
 package com.example.expansions;
 
+import android.util.Log;
 import android.widget.ImageButton;
 
 public class Carretera {
     private int posicion, valor;
     private ImageButton img;
+    private Jugador jugador;
 
     public Carretera(int posicion, ImageButton img) {
         this.posicion = posicion;
-        this.valor = -1;
+        this.valor = 0;
         this.img = img;
     }
 
@@ -20,10 +22,20 @@ public class Carretera {
         this.valor = valor;
     }
 
-    public void colocaCarretera(){
+    public void colocaCarretera(Partida partida){
         this.img.setBackgroundResource(R.drawable.carretera);
+        this.valor = 1; //Pasa a colocado
+        this.jugador = partida.getJugadorActivo();
+        this.jugador.restaCarretera();
+        Log.e("Carretera colocada", "El jugador " + String.valueOf(partida.getTurno()) + " ha colocado una carretera en la posicion " + String.valueOf(this.posicion));
     }
     public ImageButton getImageButton(){
         return this.img;
+    }
+    public Jugador getJugador() {
+        return this.jugador;
+    }
+    public int getValor() {
+        return this.valor;
     }
 }
