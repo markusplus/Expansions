@@ -63,28 +63,37 @@ public class Datos {
     public void rellenaBackgrounds(){
         int tamano = 18;
         this.backgrounds = new ArrayList<>();
-        switch(MainActivity.tamanoTablero) {
+        /*switch(MainActivity.tamanoTablero) {
             case 5:
                 tamano = tamano * 1;
             case 7:
                 tamano = tamano * 2;
             case 8:
                 tamano = tamano * 3;
-        }
-        int factor = tamano / 18;
-        for(int i = 0; i < 4 * factor; i++) {
-            this.backgrounds.add(R.mipmap.madera);
-            this.backgrounds.add(R.mipmap.oveja);
-            this.backgrounds.add(R.mipmap.trigo);
-        }
-        for(int i = 0; i < 3 * factor; i++) {
-            this.backgrounds.add(R.mipmap.ladrillo);
-            this.backgrounds.add(R.mipmap.piedra);
-        }
+        }*/
+        //int factor = tamano / 18;
+        this.backgrounds.add(R.mipmap.madera);
+        this.backgrounds.add(R.mipmap.madera);
+        this.backgrounds.add(R.mipmap.madera);
+        this.backgrounds.add(R.mipmap.madera);
+        this.backgrounds.add(R.mipmap.oveja);
+        this.backgrounds.add(R.mipmap.oveja);
+        this.backgrounds.add(R.mipmap.oveja);
+        this.backgrounds.add(R.mipmap.oveja);
+        this.backgrounds.add(R.mipmap.trigo);
+        this.backgrounds.add(R.mipmap.trigo);
+        this.backgrounds.add(R.mipmap.trigo);
+        this.backgrounds.add(R.mipmap.trigo);
+        this.backgrounds.add(R.mipmap.ladrillo);
+        this.backgrounds.add(R.mipmap.ladrillo);
+        this.backgrounds.add(R.mipmap.ladrillo);
+        this.backgrounds.add(R.mipmap.piedra);
+        this.backgrounds.add(R.mipmap.piedra);
+        this.backgrounds.add(R.mipmap.piedra);
     }
     public void rellenaNumeros(){
         numeros = new ArrayList<>();
-        int tamano = 18;
+        /*int tamano = 18;
         switch(MainActivity.tamanoTablero) {
             case 5:
                 tamano = tamano * 1;
@@ -92,30 +101,26 @@ public class Datos {
                 tamano = tamano * 2;
             case 8:
                 tamano = tamano * 3;
-        }
-        int factor = tamano / 18;
-        for(int i = 0; i < 1 * factor; i++) {
-            numeros.add(2);
-            numeros.add(12);
-        }
-        for(int i = 0; i < 2 * factor; i++) {
-            numeros.add(3);
-            numeros.add(3);
-            numeros.add(4);
-            numeros.add(4);
-            numeros.add(5);
-            numeros.add(5);
-            numeros.add(6);
-            numeros.add(6);
-            numeros.add(8);
-            numeros.add(8);
-            numeros.add(9);
-            numeros.add(9);
-            numeros.add(10);
-            numeros.add(10);
-            numeros.add(11);
-            numeros.add(11);
-        }
+        }*/
+        //int factor = tamano / 18;
+        numeros.add(2);
+        numeros.add(12);
+        numeros.add(3);
+        numeros.add(3);
+        numeros.add(4);
+        numeros.add(4);
+        numeros.add(5);
+        numeros.add(5);
+        numeros.add(6);
+        numeros.add(6);
+        numeros.add(8);
+        numeros.add(8);
+        numeros.add(9);
+        numeros.add(9);
+        numeros.add(10);
+        numeros.add(10);
+        numeros.add(11);
+        numeros.add(11);
     }
     public static int getMenosDos(int num) {
         int result = num - 2;

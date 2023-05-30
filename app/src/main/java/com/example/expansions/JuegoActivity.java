@@ -319,9 +319,11 @@ public class JuegoActivity extends AppCompatActivity {
                             celda.getCarreteraPos(j).getImageButton().setEnabled(true);
                             celda.getCarreteraPos(j).getImageButton().setAlpha(1f);
                         }
-                        if (celda.getCarreteraPos(Datos.getMenosUno(j)).getValor() == 0 && celda.getCarreteraPos(Datos.getMenosUno(j)).getImageButton() != null) {
-                            celda.getCarreteraPos(Datos.getMenosUno(j)).getImageButton().setEnabled(true);
-                            celda.getCarreteraPos(Datos.getMenosUno(j)).getImageButton().setAlpha(1f);
+                        if(celda.getCarreteraPos(Datos.getMenosUno(j)) != null) {
+                            if (celda.getCarreteraPos(Datos.getMenosUno(j)).getValor() == 0 && celda.getCarreteraPos(Datos.getMenosUno(j)).getImageButton() != null) {
+                                celda.getCarreteraPos(Datos.getMenosUno(j)).getImageButton().setEnabled(true);
+                                celda.getCarreteraPos(Datos.getMenosUno(j)).getImageButton().setAlpha(1f);
+                            }
                         }
                     }
                 }
