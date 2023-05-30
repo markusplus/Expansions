@@ -46,6 +46,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginBottom="15dp"
         android:clickable="true"
+        android:enabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@mipmap/poblado_fav" />
@@ -57,6 +58,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginBottom="15dp"
         android:clickable="true"
+        android:enabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/poblado_fav"
         app:maxImageSize="30dp"
@@ -69,22 +71,11 @@
         android:layout_marginStart="15dp"
         android:layout_marginBottom="15dp"
         android:clickable="true"
+        android:enabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/carretera_fav"
         app:maxImageSize="30dp"
         app:srcCompat="@mipmap/ciudad_fav" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/carta_fav"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="15dp"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ciudad_fav"
-        app:maxImageSize="30dp"
-        app:srcCompat="@mipmap/carta_fav" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/consola_fav"
@@ -104,6 +95,7 @@
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
         android:clickable="true"
+        android:enabled="false"
         android:gravity="center"
         android:textSize="17dp"
         app:fabSize="auto"
@@ -121,6 +113,7 @@
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
         android:clickable="true"
+        android:enabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_media_next" />

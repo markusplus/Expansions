@@ -44,8 +44,9 @@ public class Poblado {
         this.valor = 1; //Pasa a colocado
         this.jugador = partida.getJugadorActivo();
         this.jugador.restaPoblado();
+        this.jugador.sumaPuntoVictoria();
         Log.e("Poblado colocado", "El jugador " + String.valueOf(partida.getTurno()) + " ha colocado un poblado en la posicion " + String.valueOf(this.posicion));
-        MainActivity.imprimeConsola(partida.getContext(), "El jugador " + String.valueOf(partida.getTurno()) + " ha colocado un poblado en la posicion " + String.valueOf(this.posicion));
+        JuegoActivity.imprimeConsola(partida.getContext(), "El jugador " + String.valueOf(partida.getTurno()) + " ha colocado un poblado en la posicion " + String.valueOf(this.posicion));
         for(int i = 0; i < Datos.tablero.size(); i++) {
             List<Poblado> poblados = Datos.tablero.get(i).getPoblados();
             for(int j = 0; j < poblados.size(); j++) {
@@ -53,7 +54,7 @@ public class Poblado {
                     poblados.get(j).setValor(1);
                     poblados.get(j).setJugador(partida.getJugadorActivo());
                     Log.e("Poblado colocado", "El jugador " + String.valueOf(partida.getTurno()) + " ha colocado un poblado en la posicion " + String.valueOf(poblados.get(j).posicion) + " de la celda x: "+Datos.tablero.get(i).getPosX()+", "+Datos.tablero.get(i).getPosY());
-                    MainActivity.imprimeConsola(partida.getContext(), "El jugador " + String.valueOf(partida.getTurno()) + " ha colocado un poblado en la posicion " + String.valueOf(poblados.get(j).posicion) + " de la celda x: "+Datos.tablero.get(i).getPosX()+", "+Datos.tablero.get(i).getPosY());
+                    JuegoActivity.imprimeConsola(partida.getContext(), "El jugador " + String.valueOf(partida.getTurno()) + " ha colocado un poblado en la posicion " + String.valueOf(poblados.get(j).posicion) + " de la celda x: "+Datos.tablero.get(i).getPosX()+", "+Datos.tablero.get(i).getPosY());
                 }
             }
         }

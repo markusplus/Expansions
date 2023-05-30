@@ -13,12 +13,14 @@ public class Jugador {
     private static final int MAXCARRETERAS = 15;
     private static final int MAXCIUDADES = 4;
     private int numero;
+    private int puntosVictoria;
 
     public Jugador(int numero) {
         this.numero = numero;
         numeroPoblados = MAXPOBLADOS;
         numeroCarreteras = MAXCARRETERAS;
         numeroCiudades = MAXCIUDADES;
+        this.puntosVictoria = 0;
         Log.e("jugador", "Se inicia un jugador");
     }
 
@@ -28,7 +30,12 @@ public class Jugador {
     public int getNumero() {
         return this.numero;
     }
-
+    public int getPuntosVictoria() {
+        return puntosVictoria;
+    }
+    public void sumaPuntoVictoria() {
+        this.puntosVictoria++;
+    }
     public int getMadera() {
         return materias_primas[Datos.MADERA];
     }

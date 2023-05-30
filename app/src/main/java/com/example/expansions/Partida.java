@@ -24,7 +24,7 @@ public class Partida {
         this.turno = rnd.nextInt(numJugadores);
         construcciones = new Construcciones();
         Log.e("Jugador inicio", "Empieza el jugador " + String.valueOf(this.turno));
-        MainActivity.imprimeConsola(context, "Empieza el jugador " + String.valueOf(this.turno));
+        JuegoActivity.imprimeConsola(context, "Empieza el jugador " + String.valueOf(this.turno));
     }
     public Context getContext() {
         return this.context;
@@ -56,7 +56,7 @@ public class Partida {
                 jugadores[i].setRecurso(j, poblados[i][j]);
                 if(poblados[i][j] != 0) {
                     Log.e("Recurso", "El jugador " + i + " ha obtenido " + poblados[i][j] + " de " + Datos.getMateriaString(j));
-                    MainActivity.imprimeConsola(context, "El jugador " + i + " ha obtenido " + poblados[i][j] + " de " + Datos.getMateriaString(j));
+                    JuegoActivity.imprimeConsola(context, "El jugador " + i + " ha obtenido " + poblados[i][j] + " de " + Datos.getMateriaString(j));
                 }
             }
         }
@@ -87,9 +87,9 @@ public class Partida {
                 this.turno = 0;
         }
         turnoGlobal++;
-        MainActivity.tiempoActual = Datos.obtenerHoraActual();
+        JuegoActivity.tiempoActual = Datos.obtenerHoraActual();
         Log.e("Cambio turno", "Turno "+turnoGlobal+". Le toca al jugador " + this.turno);
-        MainActivity.imprimeConsola(context, "Turno "+turnoGlobal+". Le toca al jugador " + this.turno);
+        JuegoActivity.imprimeConsola(context, "Turno "+turnoGlobal+". Le toca al jugador " + this.turno);
         Log.e("Materias primas", getJugadorActivo().toString());
     }
     public int getTurnoGlobal() {

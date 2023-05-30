@@ -63,7 +63,7 @@ public class Datos {
     public void rellenaBackgrounds(){
         int tamano = 18;
         this.backgrounds = new ArrayList<>();
-        switch(MainActivity.f) {
+        switch(MainActivity.tamanoTablero) {
             case 5:
                 tamano = tamano * 1;
             case 7:
@@ -85,7 +85,7 @@ public class Datos {
     public void rellenaNumeros(){
         numeros = new ArrayList<>();
         int tamano = 18;
-        switch(MainActivity.f) {
+        switch(MainActivity.tamanoTablero) {
             case 5:
                 tamano = tamano * 1;
             case 7:
@@ -155,13 +155,15 @@ public class Datos {
     }
     public static void compruebaAcciones(Partida partida) {
         if(partida.getJugadorActivo().puedeConstruir(Construcciones.POBLADO))
-            MainActivity.poblado_fav.setEnabled(true);
+            JuegoActivity.poblado_fav.setEnabled(true);
         if(partida.getJugadorActivo().puedeConstruir(Construcciones.CARRETERA))
-            MainActivity.carretera_fav.setEnabled(true);
+            JuegoActivity.carretera_fav.setEnabled(true);
         if(partida.getJugadorActivo().puedeConstruir(Construcciones.CIUDAD))
-            MainActivity.ciudad_fav.setEnabled(true);
-        if(partida.getJugadorActivo().puedeConstruir(Construcciones.MAGIA))
-            MainActivity.carta_fav.setEnabled(true);
+            JuegoActivity.ciudad_fav.setEnabled(true);
+        if(partida.getJugadorActivo().getPuntosVictoria() == MainActivity.puntosVictoria) {
+            JuegoActivity.imprimeConsola(partida.getContext(), "El jugador " + partida.getJugadorActivo().getNumero() + " ha ganado");
+        }
+
     }
     @SuppressLint("SimpleDateFormat")
     public static String obtenerFechaConFormato(String formato) {
