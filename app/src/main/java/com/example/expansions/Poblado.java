@@ -62,10 +62,11 @@ public class Poblado {
 
     public void colocaPoblado(Partida partida){
         this.jugador = partida.getJugadorActivo();
-        if(partida.getConstrucciones().construye(this.jugador, Construcciones.POBLADO)) {
+        if(partida.getConstrucciones().construye(partida.getJugadorActivo(), Construcciones.POBLADO)) {
             this.img.setBackgroundResource(R.mipmap.poblado);
             this.jugador.restaPoblado();
             this.valor = 1; //Pasa a colocado
+            this.jugador.sumaPuntoVictoria();
             Log.e("Poblado colocado", "El jugador " + String.valueOf(partida.getTurno()) + " ha colocado un poblado en la posicion " + String.valueOf(this.posicion));
 
             for(int i = 0; i < Datos.tablero.size(); i++) {
@@ -89,6 +90,7 @@ public class Poblado {
         this.valor = 2; //Pasa a colocado
         this.jugador = partida.getJugadorActivo();
         this.jugador.restaCiudad();
+        this.jugador.sumaPuntoVictoria();
         partida.getConstrucciones().construye(this.jugador, Construcciones.CIUDAD);
         Log.e("Ciudad colocada", "El jugador " + String.valueOf(partida.getTurno()) + " ha colocado una ciudad en la posicion " + String.valueOf(this.posicion));
     }

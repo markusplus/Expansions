@@ -29,8 +29,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private Button empiezaJuego_button;
-    private EditText tamanoTablero_text, puntosVictoria_text;
-    public static int tamanoTablero, puntosVictoria;
+    private EditText tamanoTablero_text, puntosVictoria_text, jugadores_text;
+    public static int tamanoTablero, puntosVictoria, numeroJugadores;
     private Context context;
     private Intent myIntent;
 
@@ -49,23 +49,34 @@ public class MainActivity extends AppCompatActivity {
         empiezaJuego_button = (Button) findViewById(R.id.empiezaJuego_button);
         tamanoTablero_text = (EditText) findViewById(R.id.tamanoTablero_text);
         puntosVictoria_text = (EditText) findViewById(R.id.puntosVictoria_text);
+        jugadores_text = (EditText) findViewById(R.id.jugadores_text);
         empiezaJuego_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(tamanoTablero_text.getText().length() == 1 && Character.getNumericValue(puntosVictoria_text.getText().charAt(0)) > 0) {
-                    tamanoTablero = Character.getNumericValue(tamanoTablero_text.getText().charAt(0));
-                    puntosVictoria = Character.getNumericValue(puntosVictoria_text.getText().charAt(0));
-                    if (tamanoTablero % 2 != 0 && puntosVictoria != 0) {
-                        myIntent.putExtra("key", "");
-                        context.startActivity(myIntent);
-                    } else {
+                if(tamanoTablero_text.getText().length() == 1 && puntosVictoria_text.getText().length() > 0 && jugadores_text.getText().length() > 0) {
+                    if(Character.getNumericValue(puntosVictoria_text.getText().charAt(0)) > 2 && Character.getNumericValue(jugadores_text.getText().charAt(0)) >= 2) {
+                        tamanoTablero = Character.getNumericValue(tamanoTablero_text.getText().charAt(0));
+                        puntosVictoria = Integer.parseInt(puntosVictoria_text.getText().toString());
+                        numeroJugadores = Character.getNumericValue(jugadores_text.getText().charAt(0));
+                        if (tamanoTablero % 2 != 0 && puntosVictoria != 0) {
+                            myIntent.putExtra("key", "");
+                            context.startActivity(myIntent);
+                        } else {
+                            tamanoTablero_text.setText("");
+                            puntosVictoria_text.setText("");
+                            jugadores_text.setText("");
+                        }
+                    }
+                    else {
                         tamanoTablero_text.setText("");
                         puntosVictoria_text.setText("");
+                        jugadores_text.setText("");
                     }
                 }
                 else {
                     tamanoTablero_text.setText("");
                     puntosVictoria_text.setText("");
+                    jugadores_text.setText("");
                 }
             }
         });

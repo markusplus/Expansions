@@ -86,6 +86,16 @@ public class Partida {
             else
                 this.turno = 0;
         }
+        else {
+            if(Datos.getPobladosJugador(getJugadorActivo()) != null) {
+                if (Datos.getPobladosJugador(getJugadorActivo()).size() > 1) {
+                    if (this.turno == 0)
+                        this.turno = 1;
+                    else
+                        this.turno = 0;
+                }
+            }
+        }
         turnoGlobal++;
         JuegoActivity.tiempoActual = Datos.obtenerHoraActual();
         Log.e("Cambio turno", "Turno "+turnoGlobal+". Le toca al jugador " + this.turno);

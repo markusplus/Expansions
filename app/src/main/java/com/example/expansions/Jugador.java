@@ -71,6 +71,12 @@ public class Jugador {
         }
         return result;
     }
+    public int getNumeroPoblados() {
+        int result = 0;
+        if(Datos.getPobladosJugador(this) != null)
+            Datos.getPobladosJugador(this).size();
+        return result;
+    }
     public String toString() {
         return "Jugador: "+numero+". Madera: "+materias_primas[MADERA]+", Oveja: "+materias_primas[OVEJA]+", Trigo: "+materias_primas[TRIGO]+", Ladrillo: "+materias_primas[LADRILLO]+", Piedra: "+materias_primas[PIEDRA];
     }

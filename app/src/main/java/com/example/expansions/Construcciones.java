@@ -14,7 +14,7 @@ public class Construcciones {
     public boolean construye(Jugador jugador, int[] recurso) {
         boolean result = false;
         int[] materias_primas = null;
-        if(jugador.puedeConstruir(recurso)) {
+        if(jugador != null && jugador.puedeConstruir(recurso)) {
             materias_primas = jugador.getMaterias_primas();
             Log.e("Puede construir", "Se puede");
             for(int i = 0; i < recurso.length; i++){

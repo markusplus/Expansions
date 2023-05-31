@@ -8,8 +8,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -35,7 +33,7 @@ public class JuegoActivity extends AppCompatActivity {
     private Datos datos;
     private Partida partida;
     public static FloatingActionButton next_fav, poblado_fav, carretera_fav, ciudad_fav, consola_fav;
-    private ExtendedFloatingActionButton tira_fav;
+    public static ExtendedFloatingActionButton tira_fav;
     private int cont = 0;
     private Context context;
     private Dialog dialog;
@@ -274,7 +272,7 @@ public class JuegoActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     if(partida.getTurnoGlobal() < 3)
                         if(partida.getTurnoGlobal() != 1) {
-                            celdaAuxiliar.getCarretera(finalZ).colocaCarretera(partida);
+                            celdaAuxiliar.getCarretera(finalZ).colocaCarreteraInicial(partida);
                             desactivaCarreteras();
                             next_fav.setEnabled(true);
                             if(partida.getTurnoGlobal() == 2) {
@@ -283,7 +281,7 @@ public class JuegoActivity extends AppCompatActivity {
                             }
                         }
                         else{
-                            celdaAuxiliar.getCarretera(finalZ).colocaCarretera(partida);
+                            celdaAuxiliar.getCarretera(finalZ).colocaCarreteraInicial(partida);
                             desactivaCarreteras();
                             if(cont == 0)
                                 activaPoblados();
@@ -376,8 +374,6 @@ public class JuegoActivity extends AppCompatActivity {
             for(int j = 0; j < celda.getPoblados().size(); j++) {
                 if(celda.getPobladoPos(j) != null && celda.getPobladoPos(j).getImageButton() != null && (celda.getPobladoPos(j).getValor() == 1 || celda.getPobladoPos(j).getValor() == 2)) {
                     celda.getPobladoPos(j).getImageButton().setBackgroundTintList(null);
-                    celda.getPobladoPos(j).getImageButton().setEnabled(false);
-                    celda.getPobladoPos(j).getImageButton().setAlpha(0f);
                 }
             }
         }
@@ -400,5 +396,13 @@ public class JuegoActivity extends AppCompatActivity {
         lineaTexto.setText(mensaje + "\n----------------------------------------------------");
         lineaTexto.setTextColor(context.getResources().getColor(R.color.white));
         consolaLayout.addView(lineaTexto);
+    }
+
+    public static void desactivaBotones() {
+        poblado_fav.setEnabled(false);
+        carretera_fav.setEnabled(false);
+        ciudad_fav.setEnabled(false);
+        tira_fav.setEnabled(false);
+        next_fav.setEnabled(false);
     }
 }

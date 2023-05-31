@@ -165,8 +165,10 @@ public class Datos {
             JuegoActivity.carretera_fav.setEnabled(true);
         if(partida.getJugadorActivo().puedeConstruir(Construcciones.CIUDAD))
             JuegoActivity.ciudad_fav.setEnabled(true);
-        if(partida.getJugadorActivo().getPuntosVictoria() == MainActivity.puntosVictoria) {
-            JuegoActivity.imprimeConsola(partida.getContext(), "El jugador " + partida.getJugadorActivo().getNumero() + " ha ganado");
+        if(partida.getJugadorActivo().getPuntosVictoria() >= MainActivity.puntosVictoria) {
+            JuegoActivity.imprimeConsola(partida.getContext(), "-----EL JUGADOR " + partida.getJugadorActivo().getNumero() + " HA GANADO-----");
+            JuegoActivity.desactivaBotones();
+            JuegoActivity.consola_fav.performClick();
         }
 
     }
@@ -197,5 +199,18 @@ public class Datos {
         result = milis2 - milis1;
         Date date3 = new Date(result);
         return sdf.format(date3);
+    }
+    public static List<Poblado> getPobladosJugador(Jugador jugador) {
+        List<Poblado> pobladosJugador = new ArrayList<>();
+        for(int i = 0; i < tablero.size(); i++) {
+            Celda celda = tablero.get(i);
+            for(int j = 0; j < celda.getPoblados().size(); j++) {
+                if(celda.getPoblados().get(j) != null && celda.getPoblados().get(j).getJugador() != null && jugador != null) {
+                    if (celda.getPoblados().get(j).getJugador().getNumero() == jugador.getNumero())
+                        pobladosJugador.add(celda.getPoblados().get(j));
+                }
+            }
+        }
+        return pobladosJugador;
     }
 }

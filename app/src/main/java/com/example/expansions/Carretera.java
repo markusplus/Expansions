@@ -22,12 +22,22 @@ public class Carretera {
         this.valor = valor;
     }
 
-    public void colocaCarretera(Partida partida){
+    public void colocaCarreteraInicial(Partida partida){
         this.img.setBackgroundResource(R.drawable.carretera);
         this.valor = 1; //Pasa a colocado
         this.jugador = partida.getJugadorActivo();
         this.jugador.restaCarretera();
         Log.e("Carretera colocada", "El jugador " + String.valueOf(partida.getTurno()) + " ha colocado una carretera en la posicion " + String.valueOf(this.posicion));
+    }
+
+    public void colocaCarretera(Partida partida){
+        if(partida.getConstrucciones().construye(partida.getJugadorActivo(), Construcciones.CARRETERA)) {
+            this.img.setBackgroundResource(R.drawable.carretera);
+            this.valor = 1; //Pasa a colocado
+            this.jugador = partida.getJugadorActivo();
+            this.jugador.restaCarretera();
+            Log.e("Carretera colocada", "El jugador " + String.valueOf(partida.getTurno()) + " ha colocado una carretera en la posicion " + String.valueOf(this.posicion));
+        }
     }
     public ImageButton getImageButton(){
         return this.img;
